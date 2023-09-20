@@ -4,6 +4,8 @@ const {
 createApp({
   data() {
     return {
+      searchText: '',
+      newMessage: '',
       me: {
         avatar: '_io',
         name: 'Sofia'
@@ -15,21 +17,22 @@ createApp({
           name: 'Michele',
           avatar: '_1',
           visible: true,
-          messages: [{
-            date: '10/01/2020 15:30:55',
-            message: 'Hai portato a spasso il cane?',
-            status: 'sent'
-          },
-          {
-            date: '10/01/2020 15:50:00',
-            message: 'Ricordati di stendere i panni',
-            status: 'sent'
-          },
-          {
-            date: '10/01/2020 16:15:22',
-            message: 'Tutto fatto!',
-            status: 'received'
-          }
+          messages: [
+            {
+              date: '10/01/2020 15:30:55',
+              message: 'Hai portato a spasso il cane?',
+              status: 'sent'
+            },
+            {
+              date: '10/01/2020 15:50:00',
+              message: 'Ricordati di stendere i panni',
+              status: 'sent'
+            },
+            {
+              date: '10/01/2020 16:15:22',
+              message: 'Tutto fatto!',
+              status: 'received'
+            }
           ],
         },
         {
@@ -165,6 +168,74 @@ createApp({
           ],
         }
       ]
+    }
+  },
+  methods: {
+
+
+    searchContact() {
+      console.log('Searching...', this.searchText);
+
+      this.contacts.forEach((contact,index) => {
+
+
+        console.log(contact.name, this.searchText);
+        console.log(contact.name.toLowerCase().includes(this.searchText.toLowerCase()));
+
+
+        if (contact.name.toLowerCase().includes(this.searchText.toLowerCase())) {
+          this.contacts[index].visible = true
+          //contact.visible = true
+        } else {
+          this.contacts[index].visible = false
+          //contact.visible = false
+        }
+
+
+      })
+
+
+    },
+
+
+    addMessage() {
+      console.log('add a new message', this.
+        newMessage);
+
+      console.log(this.contacts[this.activeContact].messages);
+
+      this.contacts[this.activeContact].messages.push({
+        date: '10/01/2020 15:30:55',
+        message: this.newMessage,
+        status: 'sent'
+      })
+
+      this.newMessage = ''
+
+      this.replyMessage()
+
+
+    },
+
+
+    replyMessage() {
+      setTimeout(() => {
+
+        //console.log(this);
+        //console.log(this.contacts);
+
+        this.contacts[this.activeContact].messages.push({
+          date: '10/01/2020 15:30:55',
+          message: 'OK',
+          status: 'received'
+        })
+
+      }, 1000)
+    },
+
+    /* Option 2 with a method */
+    changeContact(index) {
+      this.activeContact = index
     }
   }
 }).mount('#app')

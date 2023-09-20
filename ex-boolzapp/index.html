@@ -41,10 +41,14 @@
           </div>
         </div>
         <!-- /.notifications -->
-        <div class="searcharea"></div>
+        <div class="searcharea">
+
+          <input type="search" v-model="searchText" @keyup="searchContact">
+
+        </div>
         <!-- /.searcharea -->
         <div class="contacts">
-          <div class="contact" :class="index === activeContact ? 'active' : ''" v-for="(contact, index) in contacts">
+          <div class="contact" :class="index === activeContact ? 'active' : ''" v-for="(contact, index) in contacts" @click="activeContact = index" v-show="contact.visible">
             <div class="avatar">
               <img :src="`./assets/img/avatar${contact.avatar}.jpg`" alt="">
             </div>
@@ -52,10 +56,7 @@
               {{contact.name}}
             </div>
           </div>
-  
-
-
-        </div>
+          </div>
         <!-- /.conacts -->
       </div>
       <!-- /.left -->
@@ -77,23 +78,23 @@
         </div>
         <!-- /.active_contact -->
         <div class="messages">
-          <div class="sent">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, veritatis.
-          </div>
-             <div class="sent">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, veritatis.
-          </div>
-          <div class="received">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, veritatis.
+
+
+          <div v-for="message in contacts[activeContact].messages" :class="message.status === 'sent' ? 'sent' : 'received'">
+            {{message.message}}
           </div>
 
         </div>
         <!-- /.messages -->
         <div class="toolbar">
           <div class="emoji">
-            <i class="fa-solid fa-smile    "></i>
+            <i class="fa-solid fa-smile"></i>
           </div>
-          <input type="text">
+
+          
+          <input type="text" v-model="newMessage" @keyup.enter="addMessage">
+          
+          
           <div class="mic">
             <i class="fa-solid fa-microphone"></i>
           </div>
