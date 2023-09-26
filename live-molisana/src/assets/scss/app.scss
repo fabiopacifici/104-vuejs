@@ -2,19 +2,5 @@
 
 /* Variables */
 @use './partials/variables' as *;
-
-
-/* Common */
-
-body {
-  color: $molisana_dark;
-}
-
-
-//@use './partials/app_main';
-#app_main {
-  height: 600px; // remove later
-  background-color: $molisana_secondary;
-  background-image: url('../img/fondo-pag-speciali.jpg');
-}
-
+@use './partials/common';
+@use './partials/app_main';

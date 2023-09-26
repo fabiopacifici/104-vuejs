@@ -1,0 +1,11 @@
+@use './variables' as *;
+body {
+  color: $molisana_dark;
+}
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}

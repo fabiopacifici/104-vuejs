@@ -1,0 +1,43 @@
+@use './variables' as *;
+
+main {
+  .hero {
+    background-image: url('../img/jumbotron.jpg');
+    height: 400px;
+    background-position: top center;
+  }
+
+
+
+  .comics_list {
+    .title {
+      background-color: #0382f8;
+      padding: 0.25rem;
+      color: #fefeff;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-top: -2rem;
+      margin-bottom: 4rem;
+      vertical-align: super;
+    }
+
+    .thumb {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+    }
+
+  }
+
+  .banner {
+    background-color: $dc-primary;
+    padding: 2rem 0;
+    color: $dc-light;
+
+    img {
+      height: 50px;
+    }
+  }
+
+
+}

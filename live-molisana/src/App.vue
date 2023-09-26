@@ -3,6 +3,7 @@ import AppHeader from './components/AppHeader.vue';
 import AppLogo from './components/AppLogo.vue';
 import AppMain from './components/AppMain.vue';
 import AppFooter from './components/AppFooter.vue';
+
 export default {
 
   name: 'App',
@@ -30,4 +31,6 @@ export default {
 
 <style lang="scss">
 /* @use './assets/scss/app.scss'; */
+
+
 </style>

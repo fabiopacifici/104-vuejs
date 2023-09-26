@@ -1,9 +1,12 @@
 <script>
 import AppLogo from './AppLogo.vue';
+import AppMenu from './AppMenu.vue';
+
 export default {
   name : 'AppHeader',
   components: {
-    AppLogo
+    AppLogo,
+    AppMenu
   }
 }
 </script>
@@ -12,23 +15,15 @@ export default {
     <header id="app_header" class="text-center">
 
      <AppLogo></AppLogo>
-      <nav class="navbar navbar-expand justify-content-center">
-          <div class="nav navbar-nav">
-              <a class="nav-item nav-link" href="#" aria-current="page">Home <span class="visually-hidden">(current)</span></a>
-              <a class="nav-item nav-link" href="#">About</a>
-              <a class="nav-item nav-link active-item"  href="#">Products</a>
-              <a class="nav-item nav-link" href="#">Contacts</a>
-
-          </div>
-      </nav>
+     <AppMenu></AppMenu>
 
     </header>
     <!-- /#app_header -->
 </template>
 
 
-
-<style lang="scss" scoped>
+<!-- app_header style not scoped it takes effect on AppMenu -->
+<style lang="scss">
 @use '../assets/scss/partials/variables' as *;
 
 #app_header {
