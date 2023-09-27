@@ -2,16 +2,20 @@ import {reactive} from 'vue'
 import axios from 'axios';
 
 export const state = reactive({
+  // State
   base_url: 'https://rickandmortyapi.com/api/character',
   characters: null,
   info: null,
   loading: true,
+  searchText: '',
+  characterStatus: '',
 
-  fetchData() {
+  // Actions
+  fetchData(url) {
 
-    console.log(this, this.base_url);
+    //console.log(this, this.base_url);
     axios
-      .get(this.base_url)
+      .get(url)
       .then(response => {
         console.log(response);
         this.characters = response.data.results
