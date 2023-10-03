@@ -22,4 +22,9 @@ export default {
     </MediaList>
   </main>
 </template>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+main {
+  min-height: 80vh;
+}
+</style>
